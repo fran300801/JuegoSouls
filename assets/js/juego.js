@@ -7,10 +7,10 @@ const btnConfigJuego = () => {
     const divJuego = document.querySelector('#contenedor_juego')
 
     btnJuego.addEventListener('click', () => {
-        juegoSeleccionado = getJuego(juegoDeck);
+        juegoSeleccionado = getJuego(juegosDeck);
 
         let oldJuego = document.querySelector("#juego-caratula img")
-        if(olJuego != null)
+        if(oldJuego != null)
             divJuego.removeChild(oldJuego)
         
         const bossesDiv = document.querySelector('#boss')
@@ -21,7 +21,7 @@ const btnConfigJuego = () => {
         bossesDeck = getBossesDeck();
 
         const imgJuego = document.createElement('img');
-        imgJuego.src = `assets/juegos/${juegoSelected}.webp`
+        imgJuego.src = `assets/juegos/${juegoSeleccionado}.webp`
         imgJuego.classList.add('boss')
         divJuego.append(imgJuego)
     })
