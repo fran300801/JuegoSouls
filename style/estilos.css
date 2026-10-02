@@ -1,7 +1,7 @@
 header {
     text-align: center;
 }
-div#contenedor-juego {
+div#contenedor_juego {
     display: flex;
 }
 
