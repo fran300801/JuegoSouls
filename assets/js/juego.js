@@ -9,6 +9,8 @@ const btnConfigJuego = () => {
     btnJuego.addEventListener('click', () => {
         juegoSeleccionado = getElemento(juegosDeck)
 
+        reiniciarVidas()
+
         const oldJuego = divCaratula.querySelector('img')
         if (oldJuego != null)
             divCaratula.removeChild(oldJuego)
@@ -57,9 +59,12 @@ const seleccionaBoss = (e) => {
     const img = carta.querySelector('img')
     const nombreBoss = img.src.split('/').pop().split('.')[0]   // "01J01"
     
-    esBossDelJuego(nombreBoss, juegoSeleccionado)
-        ? carta.classList.add('ok')
-        : carta.classList.add('fail')
+    if (esBossDelJuego(nombreBoss, juegoSeleccionado)) {
+        carta.classList.add('ok');
+    } else {
+        carta.classList.add('fail');
+        bajarVidas()
+    }
 }
 
 const getJuegosDeck = () => {
@@ -89,6 +94,24 @@ const getElemento = (deck) => {
 }
 
 const esBossDelJuego = (boss, juego) => boss.substring(2) === juego
+
+let vidasRestantes = VIDAS;
+const vidas = document.querySelectorAll('.vida');
+
+const bajarVidas = () => {
+    if (vidasRestantes > 0) {
+        vidasRestantes--
+        vidas[vidasRestantes].src = 'assets/vidas/empty_heart.webp'
+    }
+}
+
+const reiniciarVidas = () => {
+    vidasRestantes = VIDAS
+    vidas.forEach(vida => {
+        vida.src = 'assets/vidas/full_heart.webp'
+    })
+}
+
 
 let juegosDeck = getJuegosDeck()
 let bossesDeck = getBossesDeck()

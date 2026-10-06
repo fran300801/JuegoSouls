@@ -13,10 +13,23 @@
             Adivina de qué Souls es cada boss/jefe
         </h1>
     </header>
-    <main class="container my-5">
+    <main class="container mt-2 mb-6">
+        <div id="contenedor_vidas">
+            <img class="vida" src="assets/vidas/full_heart.webp">
+            <img class="vida" src="assets/vidas/full_heart.webp">
+            <img class="vida" src="assets/vidas/full_heart.webp">
+        </div>
         <div id="contenedor_juego">
+            <div id="botones" class="mt-4 d-flex justify-content-center gap-3">
+            <button id="genera_juego" class="btn btn-primary btn-lg me-2">
+                Generar juego
+            </button>
+            <button id="genera_boss" class="btn btn-danger btn-lg">
+                Generar boss/jefe
+            </button>
+        </div>
             <div id="juego" class="p-4">
-                <div class="card shadow h-100">
+                <div class="card shadow">
                     <div class="card-body">
                         <h2 class="card-title">Souls</h2>
                         <div id="juego-caratula"></div>
@@ -31,14 +44,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div id="botones" class="mt-4">
-            <button id="genera_juego" class="btn btn-primary btn-lg me-2">
-                Generar juego
-            </button>
-            <button id="genera_boss" class="btn btn-danger btn-lg">
-                Generar boss/jefe
-            </button>
         </div>
     </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.13.6/underscore-min.js"></script>
