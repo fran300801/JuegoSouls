@@ -52,6 +52,8 @@ const btnConfigBoss = () => {
 }
 
 const seleccionaBoss = (e) => {
+    if (vidasRestantes <= 0) return   // sin vidas: no se puede adivinar
+
     const carta = e.currentTarget
     if (carta.classList.contains('ok') || carta.classList.contains('fail'))
         return
@@ -102,11 +104,16 @@ const bajarVidas = () => {
     if (vidasRestantes > 0) {
         vidasRestantes--
         vidas[vidasRestantes].src = 'assets/vidas/empty_heart.webp'
+
+        if (vidasRestantes === 0) {
+            document.querySelector('#boss-cartas').classList.add('bloqueado')
+        }
     }
 }
 
 const reiniciarVidas = () => {
     vidasRestantes = VIDAS
+    document.querySelector('#boss-cartas').classList.remove('bloqueado')
     vidas.forEach(vida => {
         vida.src = 'assets/vidas/full_heart.webp'
     })

@@ -18,11 +18,12 @@ div#boss {
 
 div#botones {
     text-align: center;
+    margin-right: 100px;
 }
 
 .carta-boss {
     width: 150px;
-    aspect-ratio: 3 / 4;          /* o 1 / 1, o 2 / 3: la proporción que prefieras */
+    aspect-ratio: 3 / 4;
     border: 4px solid transparent;
     border-radius: .5rem;
     cursor: pointer;
@@ -32,8 +33,8 @@ div#botones {
 .carta-boss img {
     width: 100%;
     height: 100%;
-    object-fit: cover;            /* rellena el marco sin deformar */
-    object-position: center top;  /* si recorta, prioriza la parte de arriba (caras/cabezas) */
+    object-fit: cover;
+    object-position: center top;
 }
 
 .carta-boss.ok   { border-color: #198754; }
@@ -58,8 +59,18 @@ div#boss {
 #contenedor_vidas {
     display: flex;
     justify-content: center;
+    margin-left: 100px;
 }
 
 #contenedor_vidas img{
     width: 5%;
+}
+
+main{
+    position: relative;
+    left:-100px;
+}
+
+#boss-cartas.bloqueado .carta-boss {
+    cursor: not-allowed;
 }
